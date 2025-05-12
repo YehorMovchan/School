@@ -40,4 +40,9 @@ public class VScheduleController {
         return vScheduleService.findScheduleByKid(id);
     }
 
+    @GetMapping(value = "/grade={id}")
+    public List<ViewSchedule> findScheduleByGrade(@PathVariable Integer id){
+        return vScheduleService.findScheduleByGrade(id);
+    }
+
 }
