@@ -34,5 +34,5 @@ public class VScheduleService {
         return vScheduleRepository.findSchedulesByKid(id);
     }
 
-    public List<ViewSchedule> findScheduleByGrade(int id){return vScheduleRepository.findViewSchedulesByClassField(id);}
+    public List<ViewSchedule> findScheduleByGrade(int id){return vScheduleRepository.findViewSchedulesByClassFieldAndToIsNull(id);}
 }

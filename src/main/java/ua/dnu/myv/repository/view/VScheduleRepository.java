@@ -23,5 +23,5 @@ public interface VScheduleRepository extends JpaRepository<ViewSchedule, Long> {
     @Query("select vs from ViewSchedule vs where vs.teacherId=?1 and  vs.to is null order by vs.dayOfWeek, vs.lessonNumber")
     List<ViewSchedule> findSchedulesByStaff(int id);
 
-    List<ViewSchedule> findViewSchedulesByClassField(int id);
+    List<ViewSchedule> findViewSchedulesByClassFieldAndToIsNull(int id);
 }
