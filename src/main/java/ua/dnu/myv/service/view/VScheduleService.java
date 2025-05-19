@@ -19,29 +19,21 @@ public class VScheduleService {
         this.vScheduleRepository = vScheduleRepository;
     }
 
-    public List<ViewSchedule> findActual(int day) {
-        return vScheduleRepository.findActual(day);
+
+    public List<ViewSchedule> findByDayOfWeek(LocalDate day, Integer dayOfWeek) {
+        return vScheduleRepository.findByDayOfWeek(day, dayOfWeek);
     }
 
-    public List<ViewSchedule> findHistoryByDayOfWeek(LocalDate day, Integer dayOfWeek) {
-        return vScheduleRepository.findHistoryByDayOfWeek(day, dayOfWeek);
+    public List<ViewSchedule> findByTeacherId(LocalDate day, Integer teacherId) {
+        return vScheduleRepository.findByTeacherId(day, teacherId);
     }
 
-    public List<ViewSchedule> findHistoryByTeacherId(LocalDate day, Integer teacherId) {
-        return vScheduleRepository.findHistoryByTeacherId(day, teacherId);
-    }
-
-    public List<ViewSchedule> findHistoryByClassField(LocalDate day, Integer classField) {
-        return vScheduleRepository.findHistoryByClassField(day, classField);
-    }
-
-    public List<ViewSchedule> findScheduleByStaff(int id){
-        return vScheduleRepository.findSchedulesByStaff(id);
+    public List<ViewSchedule> findByClassField(LocalDate day, Integer classField) {
+        return vScheduleRepository.findByClassField(day, classField);
     }
 
     public List<ViewSchedule> findScheduleByKid(int id){
         return vScheduleRepository.findSchedulesByKid(id);
     }
 
-    public List<ViewSchedule> findScheduleByGrade(int id){return vScheduleRepository.findViewSchedulesByClassFieldAndToIsNull(id);}
 }
