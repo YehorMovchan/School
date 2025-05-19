@@ -25,10 +25,22 @@ public class VScheduleController {
         return vScheduleService.findActual(day);
     }
 
-    @GetMapping("/history/{from}/{to}/{day}")
-    public List<ViewSchedule> findHistory(@PathVariable LocalDate from, @PathVariable LocalDate to, @PathVariable Integer day){
-        return vScheduleService.findHistory(from, to, day);
+    @GetMapping("/history/day={day}/day-of-week={dayOfWeek}")
+    public List<ViewSchedule> findHistoryByDayOfWeek(@PathVariable("day") LocalDate day, @PathVariable("dayOfWeek") Integer dayOfWeek){
+        return vScheduleService.findHistoryByDayOfWeek(day, dayOfWeek);
     }
+
+    @GetMapping("/history/day={day}/teacher={teacherId}")
+    public List<ViewSchedule> findHistoryByTeacherId(@PathVariable("day") LocalDate day, @PathVariable("teacherId") Integer teacherId){
+        return vScheduleService.findHistoryByTeacherId(day, teacherId);
+    }
+
+    @GetMapping("history/day={day}/class={classField}")
+    public List<ViewSchedule> findHistoryByClassField(@PathVariable("day") LocalDate day, @PathVariable("classField") Integer classField){
+        return vScheduleService.findHistoryByClassField(day, classField);
+    }
+
+
 
     @GetMapping(value = "/teacher={id}")
     public List<ViewSchedule> findScheduleByStaff(@PathVariable Integer id){

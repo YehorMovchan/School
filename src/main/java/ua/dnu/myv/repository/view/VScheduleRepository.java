@@ -14,8 +14,14 @@ public interface VScheduleRepository extends JpaRepository<ViewSchedule, Long> {
     @Query("select sch from ViewSchedule sch where sch.to is null and sch.dayOfWeek=?1")
     List<ViewSchedule> findActual(int day);
 
-    @Query("select s1 from ViewSchedule s1 where(s1.from<=?1 and (s1.to>=?2 or s1.to is null) and s1.dayOfWeek=?3) and(s1.to is null or not exists (select 1 from ViewSchedule s2 where s2.classField=s1.classField and s2.dayOfWeek=s1.dayOfWeek and s2.lessonNumber=s1.lessonNumber and s2.to is not null and s2.from>s1.from)) ")
-    List<ViewSchedule> findHistory(LocalDate from, LocalDate to, Integer dayOfWeek);
+    @Query("select s from ViewSchedule s where s.dayOfWeek=?2 and ?1 between s.from and s.to ")
+    List<ViewSchedule> findHistoryByDayOfWeek(LocalDate day, Integer dayOfWeek);
+
+    @Query("select s from ViewSchedule s where s.teacherId=?2 and ?1 between s.from and s.to")
+    List<ViewSchedule> findHistoryByTeacherId(LocalDate day, Integer teacherId);
+
+    @Query("select s from ViewSchedule s where s.classField=?2 and ?1 between s.from and s.to")
+    List<ViewSchedule> findHistoryByClassField(LocalDate day, Integer classField);
 
     @Query("select vs from Kid k left join fetch ViewSchedule vs on k.grade=vs.classField where k.id=?1 and vs.to is null order by vs.dayOfWeek, vs.lessonNumber")
     List<ViewSchedule> findSchedulesByKid(int id);

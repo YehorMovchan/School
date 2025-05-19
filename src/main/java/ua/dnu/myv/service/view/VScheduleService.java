@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.View;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,8 +23,16 @@ public class VScheduleService {
         return vScheduleRepository.findActual(day);
     }
 
-    public List<ViewSchedule> findHistory(LocalDate from, LocalDate to, Integer day) {
-        return vScheduleRepository.findHistory(from, to, day);
+    public List<ViewSchedule> findHistoryByDayOfWeek(LocalDate day, Integer dayOfWeek) {
+        return vScheduleRepository.findHistoryByDayOfWeek(day, dayOfWeek);
+    }
+
+    public List<ViewSchedule> findHistoryByTeacherId(LocalDate day, Integer teacherId) {
+        return vScheduleRepository.findHistoryByTeacherId(day, teacherId);
+    }
+
+    public List<ViewSchedule> findHistoryByClassField(LocalDate day, Integer classField) {
+        return vScheduleRepository.findHistoryByClassField(day, classField);
     }
 
     public List<ViewSchedule> findScheduleByStaff(int id){
