@@ -18,7 +18,7 @@ public class VKidController {
         this.vKidService = vKidService;
     }
 
-    @GetMapping("student/grade={grade}")
+    @GetMapping("students/grade={grade}")
     public List<ViewKid> findStudentByGrade(@PathVariable("grade") int grade){
         return vKidService.findStudentsByGrade(grade);
     }
