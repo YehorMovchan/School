@@ -17,6 +17,4 @@ public interface KidRepository extends JpaRepository<Kid, Integer> {
 
     List<Kid> findByGrade(int grade);
 
-    @Query("select k from Kid k where k.grade=?1 and k.student is true ")
-    List<Kid> findStudentByGrade(int grade);
 }

@@ -34,7 +34,8 @@ public class ViewProgramsType implements Serializable {
     @Column(name = "info")
     private String info;
 
-
+    @Column(name = "school_included")
+    private Boolean schoolIncluded ;
 
     @Column(name = "price")
     private Integer price;

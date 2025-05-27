@@ -32,10 +32,6 @@ public class KidController {
         return kidService.findByGrade(grade);
     }
 
-    @GetMapping(value = "/students/grade={grade}")
-    public List<Kid> findStudentByGrade(@PathVariable int grade){
-        return kidService.findStudentByGrade(grade);
-    }
 
     @GetMapping(value = "/{id}")
     public Optional<Kid> findById(@PathVariable int id){

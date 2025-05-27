@@ -39,9 +39,6 @@ public class KidService {
         return kidRepository.findById(id);
     }
 
-    public List<Kid> findStudentByGrade(int grade){
-        return kidRepository.findStudentByGrade(grade);
-    }
 
     public List<Kid> findByGrade(int grade){
         return kidRepository.findByGrade(grade);

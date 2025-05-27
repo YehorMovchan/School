@@ -17,6 +17,9 @@ public class ProgramsType {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "school_included")
+    private boolean schoolIncluded;
+
     @Lob
     @Column(name = "info")
     private String info;

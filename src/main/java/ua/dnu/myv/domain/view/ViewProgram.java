@@ -38,6 +38,9 @@ public class ViewProgram {
     @Column(name = "program_name")
     private String programName;
 
+    @Column(name = "school_included")
+    private Boolean schoolIncluded;
+
     @Column(name = "program_price")
     private Integer programPrice;
 
