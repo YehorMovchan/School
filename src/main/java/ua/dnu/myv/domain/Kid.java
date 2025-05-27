@@ -39,6 +39,4 @@ public class Kid {
     @JoinColumn(name = "father")
     private Long father;
 
-    @Column(name = "student")
-    private Boolean student;
 }

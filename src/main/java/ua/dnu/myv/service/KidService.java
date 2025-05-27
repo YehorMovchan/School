@@ -50,7 +50,6 @@ public class KidService {
         kid.setName(kidNew.getName());
         kid.setBirthday(kidNew.getBirthday());
         kid.setGrade(kidNew.getGrade());
-        kid.setStudent(kidNew.getStudent());
         if(birthCertificate != null){
             kid.setBirthCertificate(birthCertificate.getBytes());
         }

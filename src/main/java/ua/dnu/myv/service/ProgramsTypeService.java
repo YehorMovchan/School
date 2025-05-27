@@ -25,6 +25,7 @@ public class ProgramsTypeService {
         ProgramsType pt = programsTypeRepository.findById(id).orElse(null);
         assert pt != null;
         pt.setName(programsType.getName());
+        pt.setSchoolIncluded(programsType.isSchoolIncluded());
         pt.setInfo(programsType.getInfo());
     }
 
